@@ -6,16 +6,23 @@
  * and open the template in the editor.
  */
 
+namespace app\controllers;
+
 /**
- * Description of UserController
+ * Description of PostController
  *
  * @author vkalashnykov
  */
-namespace app\controllers\admin;
-
-class UserController extends \app\controllers\AppController{
+class PostController extends AppController{
+    
+    public $layout='basic';
     //put your code here
     public function actionIndex(){
-        return $this->render('index');
+        return $this->render('test');
+    }
+    
+    public function actionShow(){
+        $this->layout='basic';
+        return $this->render('show');
     }
 }
