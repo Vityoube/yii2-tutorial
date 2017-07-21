@@ -7,11 +7,13 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-//    'layout' => 'basic',
+    'language'=>'pl',
+    'layout' => 'main',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'CEqRH6uRoJAtmYs_tg5C7-WNv1yhviiH',
+            'baseUrl' => '/yii2'
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -40,14 +42,24 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+//            'suffix'=>'.html',
             'rules' => [
+//                [
+//                    'pattern' => '/yii2',
+//                    'route' => 'site/index',
+//                    'suffix' =>''
+//                ],
+////                 '' => 'site/index', 
+////                '<_a:[\w\-]+>' => 'site/<_a>',
+//                '<action:(about|contact|login)>'=>'site/<action>',
+////                '<action:about>'=>'page/about',
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
@@ -65,7 +77,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+//        'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
 

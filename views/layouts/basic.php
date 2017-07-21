@@ -11,8 +11,9 @@ AppAsset::register($this);
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <?=        Html::csrfMetaTags() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
+        <title><?= $this->title ?></title>
         <?php $this->head() ?>
     </head>
     <body>
@@ -24,6 +25,10 @@ AppAsset::register($this);
                     <li role="presentation"><?=Html::a('Articles',['post/index']) ?></li>
                     <li role="presentation"><?=Html::a('Article',['post/show']) ?></li>
                 </ul>
+                
+                <?php if (isset($this->blocks['block1'])): ?>
+                    <?php echo $this->blocks['block1']; ?>
+                <?php endif; ?>
                 <?= $content  ?>
             </div>
         </div>

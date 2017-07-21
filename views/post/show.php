@@ -1,4 +1,42 @@
+<?php 
+//    $this->title='Article'
+use app\components\MyWidget;
+        ?>
+
+<?php $this->beginBlock('block1'); ?>
+<h1>Header</h1>
+<?php $this->endBlock(); ?>
+
 <h1>Show Action</h1>
+
+<?php //echo MyWidget::widget(['name'=>'Vasia']);?>
+
+
+<?php MyWidget::begin() ?>
+    <h1>Hello World!</h1>
+<?php MyWidget::end() ?>
+    
+<?php MyWidget::begin() ?>
+    <h1>Hello World!</h1>
+<?php MyWidget::end() ?>
+
+<?php 
+//foreach ($cats as $cat){
+//    echo '<ul>';
+//        echo '<li>'.$cat->title.'</li>';
+//        $products=$cat->products;
+//        foreach ($products as $product){
+//            echo '<ul>';
+//                echo '<li>'.$product->title.'</li>';
+//            echo '</ul>';
+//        }
+//    echo '</ul>';
+//} 
+?>
+
+<?php //        debug($cats) ?>
+<?php //         echo count($cats[0]->products); ?>
+<?php //        debug($cats) ?>
 
 <button class="btn btn-success">Click me</button>
 
@@ -8,22 +46,20 @@
 <?php // $this->registerCss('.container{background: #ccc;}') ?>
 
 <?php 
-
-$js = <<< JAVASCRIPT
-        $('.btn').on('click',function(){
-            $.ajax({
-                url: 'index.php?r=post/index',
-                data: {test : '123'},
-                type: 'GET',
-                success:  function(res){
-                    console.log(res);
-                },
-                error: function(){
-                    alert('Error');
-                }
-            });
+$js=<<<JS
+    $(".btn").click(function(){
+        $.ajax({
+            url: 'index.php?r=post/index',
+            data: { test: '123' },
+            type: 'POST',
+            success:  function(res){
+                console.log(res);
+            },
+            error: function(){
+                alert('Error');
+            }
         });
-JAVASCRIPT;        
-        $this->registerJs($js);
-        
-        ?>
+    });
+JS;
+$this->registerJs($js);
+?>
